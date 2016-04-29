@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>球队介绍</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no, initial-scale=1.0">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="css/team_info.css" rel="stylesheet" />
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/touchwipe.js"></script>
+</head>
+<body>
+<input type="hidden" id="hiddenId"/> 
+    <div class="container-fluid bg"  >
+        <div class="row">
+            <div class="col-xs-12" style="border-bottom:5px solid rgb(210,252,48); text-align:center; padding:10px 0;">
+                <img id="teamPic" src="" style="height:136px; width:135px; border-radius:100%; border:3px solid rgb(210,252,48);">
+            </div>
+        </div>
+
+        <div class="row" style="position:relative;margin-top:5px;">
+            <div class="col-xs-12">
+                <label style="color:#fff;">
+                    球&nbsp;&nbsp;队&nbsp;&nbsp;名：<span style="color:rgb(210,252,48);" id="teamName"></span>
+                </label>
+            </div>
+            <div class="col-xs-12">
+                <label style="color:#fff;">
+                    区&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;域：<span id="regionName"></span>
+                </label>
+            </div>
+            <div class="col-xs-12">
+                <label style="color:#fff;">
+                    学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校：<span id="schoolName"></span>
+                </label>
+            </div>
+            <!-- <div class="col-xs-12">
+                <label style="color:#fff;">
+                    组&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：<span>初中组</span>
+                </label>
+            </div> -->
+            <div class="col-xs-12">
+                <label style="color:#fff;">
+                    球队人数：<span id="teamCount"></span>
+                </label>
+            </div>
+            <div class="col-xs-12">
+                <label style="color:rgb(210,252,48);" id="teamDesc">
+
+                </label>
+            </div>
+
+            <div style="width:80px;   position:absolute; top:75px; right:7px; text-align:center; ">
+                <a href="javascript:void(0);" id="btnA" style="display:block;width:100%; background-color:rgb(210,252,48); margin:0 auto; margin-bottom:5px; color:#000000;">
+                    加入
+                </a>
+ 
+                <div style="clear:both; "></div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12" style="color:rgb(210,251,49); text-align:center; font-size:18px; font-weight:bold; margin-top:5px;">
+                成员列表
+            </div>
+        </div>
+        <div    class="row" style="background-color:rgb(210,251,49);  position:relative;">  
+               <!--  <img src="images/left.png" style="width:20px; position:absolute;left:3px; top:43%; z-index:99;" onclick="_load('left')"/>
+            <img src="images/right.png" style="width:20px; position:absolute;right:3px; top:43%; z-index:99;" onclick="_load('rigth')" />   -->
+          <div id="block">
+          
+          </div>
+
+        </div>
+
+        <div class="row" style="color:rgb(210,252,48); text-align:center;">
+            <div class="col-xs-12">
+温馨提示：球队人数只有在满6人以上的情况下才会有资格。
+                你可将此页面分享，邀请更多小伙伴的参与。
+            </div>
+           
+        </div>
+        <div class="row" style="color:rgb(210,252,48); margin:20px 0; position:relative;">
+            <div class="col-xs-6" style="text-align:center;">
+                <img src="images/m.png" id="_img" style="height: auto;
+width: auto\9;
+width: 100%;" />
+            </div>
+            <div class="col-xs-6" style="text-align:center; color:#fff; position:absolute; top:30%;left:50%; ">
+                
+                    长按此图识别二维码快速关注获取更多信息
+                
+            </div>
+        </div>
+        
+
+        <!--<div class="row">
+            <div class="col-xs-12" style="  text-align:center; padding:10px 0;">
+                <button type="submit" class="btn btn-primary btn-lg" style="width:100%; background-color:rgb(210,252,48); border:1px solid rgb(210,252,48);">
+                    马上和小伙伴一起战斗！
+                </button>
+            </div>
+        </div>-->
+
+    </div>
+
+   <!-- <script>  
+
+        var page = 0;
+
+        function _load(wher) {
+            if (wher == "left") {
+                page;
+            } else {
+                page++;
+            }
+            var _html = "";
+            for (var i = 0; i < 3; i++) {
+                _html += "<div class=\"col-xs-4\">\
+                                 <div class=\"row\">\
+                                      <div class=\"col-xs-12 top_img_div\">\
+                                             <img src=\"images/team_info.jpg\" class=\"top_img\" />\
+                                      </div>\
+                                      <div class=\"col-xs-12\" style=\"text-align:center; margin:3px 0;\">\
+                                                xiang"+ page + "\
+                                      </div>\
+                                      <div class=\"col-xs-12\" style=\"text-align:center; margin:3px 0;\">\
+                                            前锋x号"+ page + "\
+                                      </div>\
+                                 </div>\
+                             </div>";
+            }
+            $("#block").html(_html);
+        }
+        //滑动  touchwipe.js
+        $("#block").touchwipe({
+            min_move_x: 10,
+            min_move_y: 10,
+            wipeLeft: function () { 
+                _load("rigth")
+                //alert("left");
+                //console.log("left，");
+            },
+            wipeRight: function () {
+                _load("left");
+               // alert("left");
+               // console.log("rigth，");
+            },
+            wipeUp: function () { //$("#val").append("上，");
+                console.log("上，");
+
+            },
+            wipeDown: function () { //$("#val").append("下，");
+                console.log("下，");
+
+            },
+            wipe: function () { //$("#val").append("点击，");
+                console.log("点击，");
+
+            },
+            wipehold: function () {// $("#val").append("保持，");  
+                console.log("保持，");
+            },
+            swipe: function (event, direction, distance, duration, fingerCount) {
+                alert(direction);
+            },
+            preventDefaultEvents: true
+        });
+
+
+        //滑动  touchwipe.js
+        $("#_img").touchwipe({
+            min_move_x: 10,
+            min_move_y: 10,
+            
+            wipehold: function () {// $("#val").append("保持，"); 
+                alert("保持，");
+                console.log("保持，");
+            }, 
+            preventDefaultEvents: true
+        });
+    </script>-->
+     <script type="text/javascript">
+$(document).ready(function(){
+
+    //var reg = new RegExp("(^|&)" + id + "=([^&]*)(&|$)");
+    ///alert(window.location.search);
+            
+            //window.location.search;获得地址栏比如http://localhost:1214/web/BoKeHomePage.aspx?name=1
+            //返回"?name=1";
+            //substr(index,index);截取字符串从第几个开始截取,截取多少个，不写代表一直到最后
+            //match();返回指定数值在指定数组区域中的位置
+    var url=location.search; 
+    var ename; 
+    var Request = new Object(); 
+    if(url.indexOf("?")!=-1) 
+    { 
+    var str = url.substr(4); 
+    $("#hiddenId").val(str);
+    
+    }
+    findAll();
+
+});
+
+function img_seover(){ 
+        $("#imgs").attr("src","/xinmin/images/index_hui.png");
+    }
+function img_out(){
+        $("#imgs").attr("src","/xinmin/images/index_black.png");
+    }
+
+
+</script>
+<script>
+function findAll(){
+    var hiddenId =$("#hiddenId").val();
+    if(hiddenId==null||hiddenId==''){
+        layer.msg("未能获取ID，请重新刷新页面");
+        return false;
+    }
+    jQuery.ajax({
+        url:'/xinmin/umanages/findAll.do',
+        type:'POST',
+        dataType :'json',
+        data :{id:hiddenId},
+        success : function(data){
+            if(data.status==200){
+            //  console.log(data);
+                $("#teamName").text(data.data.teamName);
+                $("#regionName").text(data.data.addressName);
+                $("#schoolName").text(data.data.schoolName);
+                $("#teamCount").text(data.data.teamCount);
+                $("#teamDesc").text(data.data.teamDesc);
+                $("#teamPic").attr("src",data.data.teamLogo);
+                var obj = data.data.UserDtoList;
+                var a='';
+                if(obj!=null){
+                    for(var i=0;i<obj.length;i++){
+                    	
+                    	/* 	a+="<div class=\"col-xs-4\">";
+                        a+="<div class=\"row\">";
+                            a+="<div class=\"col-xs-12 top_img_div\">";
+                            a+="<img src="'+ obj[i].userImage +'" class=\"top_img\" /></div>";
+                            
+                            a+="<div class=\"col-xs-12\" style=\"text-align:center; margin:5px 0;\">";
+                            	 a+= obj[i].realName;
+                            
+                            a+="</div><div class=\"col-xs-12\" style=\"text-align:center; margin:5px 0;\">";
+                            	  var pos = obj[i].pos
+                                  if(pos!=''&&pos!=null){
+                                      if(pos==1){
+                                          a+="中场";
+                                      }else if(pos==2){
+                                          a+="前卫";
+                                      }else if(pos==3){
+                                          a+="前锋";
+                                      }else if(pos==4){
+                                          a+="后卫";
+                                      }else if(pos==5){
+                                          a+="门将";
+                                      }else{
+                                          a+="未知";
+                                      }
+                                  }else{
+                                      a+="未知";
+                                  }
+                            a+="</div>";
+                            a+="</div>";
+                            a+="</div>";*/
+
+                    	     a+='<div class="col-xs-4">';
+                a+=    '<div class="row">';
+                a+=        '<div class="col-xs-12 top_img_div">';
+                a+=            '<img src="'+ obj[i].userImage +'" class="top_img" />';
+                a+=        '</div>';
+                a+=        '<div class="col-xs-12" style="text-align:center; margin:5px 0;  white-space: nowrap; word-break:keep-all;overflow: hidden;text-overflow: ellipsis;">';
+                a+=            obj[i].realName;
+                a+=        '</div>';
+                a+=        '<div class="col-xs-12" style="text-align:center; margin:5px 0;">';
+                var pos = obj[i].pos
+                        if(pos!=''&&pos!=null){
+                            if(pos==1){
+                                a+="中场";
+                            }else if(pos==2){
+                                a+="前卫";
+                            }else if(pos==3){
+                                a+="前锋";
+                            }else if(pos==4){
+                                a+="后卫";
+                            }else if(pos==5){
+                                a+="门将";
+                            }else{
+                                a+="未知";
+                            }
+                        }else{
+                            a+="未知";
+                        }
+                a+=        '</div>';
+                a+=    '</div>';
+                a+='</div>';
+
+           	        /*a+=" <div class=\"block\"><div style=\"width:60%; margin:0 auto; background-color:#fff; border-radius:100%; padding:5px; \">";
+                        a+="<img src=\""+obj[i].userImage+"\" style=\"height: auto;width: auto\9;width: 100%;\" /></div>";
+                       a+=" <div class=\"block\"><div style=\"width:185px; height:186px; margin:0 auto; background-color:#fff; border-radius:100%; padding:5px; \">";
+                        a+="<img src=\""+obj[i].userImage+"\" style=\"width:185px; height:186px; border-radius:100%;\" /></div>";   
+                        a+=" <p style=\"width:100%; text-align:center; font-family:Arial; font-weight:bold; margin-top:10px;\">"+obj[i].realName+"</p>";
+                        a+="    <p style=\"width:100%; text-align:center; font-weight:bold; \">";
+                        var pos = obj[i].pos
+                        if(pos!=''&&pos!=null){
+                            if(pos==1){
+                                a+="中场";
+                            }else if(pos==2){
+                                a+="前卫";
+                            }else if(pos==3){
+                                a+="前锋";
+                            }else if(pos==4){
+                                a+="后卫";
+                            }else if(pos==5){
+                                a+="门将";
+                            }else{
+                                a+="未知";
+                            }
+                        }else{
+                            a+="未知";
+                        }
+                        a+="</p>";
+                        a+="</div>"
+                    	*/
+                    }
+                    
+                }
+    
+        
+             $("#block").html(a);
+            }else{
+                layer.msg("查询队伍资料出错");
+            }
+        }
+    });
+    
+    
+    
+}
+$("#btnA").click(function(){
+    var hiddenId =$("#hiddenId").val();
+    if(hiddenId==null||hiddenId==''){
+        layer.msg("未能获取ID，请重新刷新页面");
+        return false;
+    }
+    jQuery.ajax({
+        url:'/xinmin/umanages/jump.do',
+        type:'POST',
+        dataType :'json',
+        data :{id:hiddenId},
+        success : function(data){
+            if(data.status==200){
+                location.href="./join.html";
+            }else{
+                layer.msg("申请加入队伍失败，原因:检查不到队伍ID");
+            }
+        }
+    }); 
+});
+</script>
+</body>
+</html>

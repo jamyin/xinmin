@@ -1,0 +1,597 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script src="/xinmin/js/jquery-2.1.3.min.js"></script>
+<script src="/xinmin/js/layer-1.9/layer.js"></script>
+<link href="css/index.css" rel="stylesheet" />
+
+</head>
+<body id="top"> 
+ 
+  <a  href="#top" style="position:fixed; right:10px; bottom:10px; z-index:9999;"><img  id="imgs" src="/xinmin/images/top_black.png" style="width:70px;" onmouseover="img_seover()" onmouseout="img_out()" title="置顶"/></a>
+	<input type="hidden" id="pageSize" value="4" />
+	<input type="hidden" id="currPage" value="1" />
+	<input type="hidden" id="total" value="0" />
+
+	<div style="position: fixed;"></div>
+	<div class="container">
+		<div class="header">
+			<ul>
+				<li><a href="http://www.jujusports.cn" >首页</a></li>
+				<li><a href="#desc" >赛事介绍</a></li>
+				<li><a href="#site_info" >赛事安排</a></li>
+			    <li><a href="#rule">赛事规程</a></li>
+				<li><a href="#team">赛事球队</a></li>
+			</ul>
+		</div>
+
+
+		<div id="home" class="home" style="width: 100%; position: relative;">
+			<img src="images/t.png"
+				style="height: auto; width: auto\9; width: 100%;" /> 
+				
+
+			<div style="position: absolute; top: 80%; width: 13%; right: 30%;"
+				onclick="window.location.href='create.html';">
+				<img src="images/crate_btn.png"
+					style="height: auto; width: auto\9; width: 100%; cursor: pointer;" />
+			</div>
+			<div style="position: absolute; top: 80%; width: 13%; right: 10%;">
+				<a href="#joinTeamss"><img src="images/join_btn.png"
+					style="height: auto; width: auto\9; width: 100%; cursor: pointer;" /></a>
+			</div>
+
+		</div>
+		
+		<div id="desc" class="desc"  style="width: 100%; position: relative;">
+		<img src="images/index.jpg" style="height: auto; width: auto\9; width: 100%;" />
+		</div>
+		
+
+		<div id="site_info">
+			<div class="site_info">
+				<div class="site">
+					<div
+						style="float: left; height: 250px; margin-left: 15%; margin-right: 5%;">
+						<img src="images/1.png"
+							style="height: auto; width: auto\9; width: 100%;" />
+					</div>
+					<div style="float: left; width: 60%;">
+						<p style="font-size: 30px; color: #d2fc31; margin-top: 50px;">前期预热</p>
+						<p style="font-size: 30px; color: #fff; margin-top: 0px;">About</p>
+						<p style="font-size: 36px; color: #d2fc31; margin-top: 10px;">2015.5.18</p>
+						<p
+							style="font-size: 22px; color: #fff; margin-top: 10px; width: 640px;">启动仪式、发布比赛相关信息、正式启动报名</p>
+					</div>
+				</div>
+
+				<div class="site1">
+					<div
+						style="float: left; height: 250px; margin-right: 3%; margin-left: 34%;">
+						<img src="images/2.png"
+							style="height: auto; width: auto\9; width: 100%;" />
+					</div>
+					<div style="float: left; width: 30%;">
+						<p
+							style="font-size: 26px; color: #000; margin-top: 20px; font-weight: bold;">区县预赛</p>
+						<p style="font-size: 30px; color: #fff; margin-top: 0px;">About</p>
+						<p style="font-size: 36px; color: #858588; margin-top: 10px;">2015.5.18</p>
+						<p style="font-size: 20px; color: #373a3a; width: 400px;">
+							青浦、松江、金山</p>
+						<p style="font-size: 20px; color: #373a3a; width: 400px;">
+							嘉定、宝山、崇明</p>
+						<p style="font-size: 20px; color: #373a3a; width: 400px;">
+							浦东、南汇、奉贤</p>
+						<p style="font-size: 20px; color: #373a3a; width: 400px;">
+							闵行、杨浦、闸北、虹口</p>
+						<p style="font-size: 20px; color: #373a3a; width: 400px;">
+							黄埔、徐汇、静安、长宁</p>
+					</div>
+				</div>
+
+				<div class="site">
+					<div
+						style="float: left; height: 250px; margin-right: 3%; margin-left: 3%;">
+						<img src="images/3.png"
+							style="height: auto; width: auto\9; width: 100%;" />
+					</div>
+					<div style="float: left; width: 60%;">
+						<p style="font-size: 30px; color: #d2fc31; margin-top: 20px;">市总决赛</p>
+						<p style="font-size: 30px; color: #fff; margin-top: 0px;">About</p>
+						<p style="font-size: 36px; color: #878787; margin-top: 0px;">2015.5.18</p>
+						<p style="font-size: 20px; color: #fff;">
+							【DAY1：赛前训练营】邀请上还知名教练和球员给参赛者进行足球培训。</p>
+						<p style="font-size: 20px; color: #fff;">
+							【DAY2、3：开幕式+小组赛】小组赛单循环；按抽签分组；小组前两名晋级淘汰赛。</p>
+						<p style="font-size: 20px; color: #fff;">
+							【DAY4：淘汰赛】各组别16支队伍最终决出四强。</p>
+						<p style="font-size: 20px; color: #fff;">【DAY5：俱乐部参观】参观上海俱乐部</p>
+						<p style="font-size: 20px; color: #fff;">
+							【DAY6：半决赛+实战训练营】半决赛；上海足球明星指导</p>
+						<p style="font-size: 20px; color: #fff;">
+							【DAY7：总决赛+闭幕式】各组别冠亚军决赛</p>
+
+						<p style="font-size: 20px; color: #fff;">【DAY8：观看中超比赛】欢迎中超比赛</p>
+
+
+					</div>
+
+				</div>
+			</div>
+
+			<div class="site2">
+				<div class="site2_l">
+					<div style="width: 70%; margin-left: 100px; margin-top: 60px;">
+						<p style="font-size: 30px; color: #000; font-weight: bold;">赛事介绍</p>
+						<p style="color: #d2fc31; font-size: 28px;">About</p>
+						<p style="line-height: 25px; font-size: 18px;">
+							新民晚报暑期中学生足球赛是由上海市教委、上海市体育局和新民晚报社联合主办，上海市足协、北京欧迅体育协办的上海市青少年业余经典品牌赛事。赛事将全面覆盖上海市17个区县，超过上千所中学的全体在校学生。
+						</p>
+						<p style="line-height: 25px; font-size: 18px;">
+							2015年，正值新民晚报暑期中学生足球赛历时30周年之际，在尊重传统基础上，赛事力求与时俱进，通过全面推行线上报名；增设明星足球训练营、比赛日嘉年华等周边活动等方式，全方位提升参赛者的参与体验，打造具有传承性的青少年足球赛事盛会。
+						</p>
+					</div>
+					<div
+						style="width: 100%; background-color: #d2fc31; height: 80px; margin-top: 30px; padding-top: 35px;">
+						<!-- <a
+							style="display: block; border: 3px solid #000; padding: 10px 0px; width: 150px; text-align: center; margin-left: 100px; cursor: pointer;">
+							更多介绍 </a> -->
+					</div>
+				</div>
+				<div class="site2_r">
+					<img src="images/tu.png" />
+				</div>
+
+
+			</div>
+
+
+			<div style="width: 100%; height: 80px; background: #373a3a;"></div>
+
+			<div style="width: 100%; background-color: #d2fc31; height: 40px;">
+
+			</div>
+		</div>
+
+		<div id="rule" class="rule">
+			<img src="images/rule.jpg"
+				style="height: auto; width: auto\9; width: 100%;" />
+		</div>
+
+		<div id="team" class="team " style="position: relative;">
+			<div id="joinTeamss" class="team_header" style="position: relative;">
+				<div
+					style="width: 960px; margin: 0 auto; margin-top: 50px; position: relative;">
+					<div class="btn_bg" id="cz" check="0" onclick="_click('cz',0);"
+						style="cursor: pointer; background-image: url('images/xz.png')">
+						<img src="images/czz.png" style="padding-top: 2%;" />
+					</div>
+					<div class="btn_bg" id="gz" check="1" onclick="_click('gz',1);"
+						style="cursor: pointer;">
+						<img src="images/gzz.png" style="padding-top: 2%;" />
+					</div>
+					<!-- <select class="sel_" id="Select1"  >
+                            <option style="color:#000000;">请选择1</option>
+                            <option style="color:#000000; ">请选择2</option>
+                            <option style="color:#000000;">请选择3</option>
+
+                        </select> -->
+					<select class="sel_" id="regionId" name="regionId"></select>
+					<!--<div  style=" position:relative ; z-index:3"> 
+                                <div id="sel_1" style="float:left; background-color:rgba(255, 255, 255, 0.00); color:#d2fc31; width:45%;  border:2px solid #d2fc31; height:35px; line-height:35px; position:relative;  margin-top:30px; margin-left:50px; ">
+                                    <div onclick="sle_show('sel_div1')" id="xz1" style=" width:90%; height:100%; float:left; padding-left:5px;  white-space: nowrap;word-break:keep-all;overflow: hidden;text-overflow: ellipsis;">
+                                        请选择
+                                    </div>
+                                    <div onclick="sle_show('sel_div1')" style="width:25px; height:100%;  float:left; text-align:center; ">
+                                        <img src="images/sjx.png" width="15" />
+                                    </div>
+                                    <div id="sel_div1" style="position:absolute; z-index:999; background-color:rgba(255, 255, 255, 0.37); top:35px; display:none;">
+                                        <ul class="sel_ul" style=" background-color:rgba(255, 255, 255, 0.07);">
+                                            <li onclick="sle_hide(this, 'sel_div1', 'xz1')">请选择min请选择min请选择min-width:100%;请选择请选择 选择</li>
+                                            <li onclick="sle_hide(this, 'sel_div1', 'xz1')">请选择</li>
+                                            <li onclick="sle_hide(this, 'sel_div1', 'xz1')">请选择</li>
+                                            <li onclick="sle_hide(this, 'sel_div1', 'xz1')">请选择</li>
+                                            <li onclick="sle_hide(this, 'sel_div1', 'xz1')">请选择</li>
+                                            <li onclick="sle_hide(this, 'sel_div1', 'xz1')">请选择</li>
+                                            <li onclick="sle_hide(this, 'sel_div1', 'xz1')">请选择</li>
+                                            <li onclick="sle_hide(this, 'sel_div1', 'xz1')">请选择</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>-->
+
+
+					<div
+						style="background-color: #b6ff00; width: 30%; height: 39px; float: left; margin-top: 30px; margin-left: 2%">
+						<input id="teamName" name="teamName" type="text"
+							placeholder="输入球队名称"
+							style="font-size: 20px; padding-left: 5px; height: 95%; width: 98%; background-color: transparent; border: 0px;" />
+					</div>
+					<div id="findTeam" name="findTeam">
+						<a
+							style="display: block; color: #fff; font-size: 20px; width: 15%; margin-left: 2%; text-align: center; float: left; margin-top: 30px; background-color: #ff6a00; height: 39px; line-height: 39px; cursor: pointer;">
+							查询 </a>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="team_info" id="team_info" check="0">
+				<!--                 <div class="team_info_block">
+                    <div style="width:30%;  padding-left:10%; margin-top:5%; float:left;">
+                        <img src="images/bz.png" style="height: auto;width: auto\9;width: 80%;" />
+                    </div>
+                    <div style="float:left; width:58%;   margin-top:5%;">
+                        <p style="color:#d2fc31; font-size:28px; margin-top:10px; ">
+                            哈利路亚俱乐部
+                        </p>
+                        <p style="color:#fff; font-size:22px;  margin-top:10px;">
+                            松江区 进才中学北校
+                        </p>
+                        <p style=" font-size:20px; margin-top:10px;">
+                            <a style=" display:block; text-align:center; line-height:30px; height:30px; background-color:#d2fc31; width:100px;">
+                                加入
+                            </a>
+                        </p>
+                    </div>
+                </div> -->
+
+			</div>
+
+		</div>
+
+		<!--<div style="position:relative; padding:10px 0; background:#d2fc31;">
+
+
+
+            <div class="crate_btn">
+                创建球队
+            </div>
+
+            <div class="join_btn">
+                加入球队
+            </div>
+        </div>-->
+		<!--<div class="site_info">
+             <div class="site">
+                 <div class="site_l">
+                     <img src="images/L.png" />
+                 </div>
+                 <div class="site_c">
+                     赛事介绍
+                 </div>
+                 <div class="site_r">
+                     <img src="images/R.png" />
+                 </div>
+             </div>
+        </div> -->
+		<!--<div style="width:100%;  ">
+            <img src="images/index.jpg" class="img" />
+        </div>-->
+
+	</div>
+
+
+
+
+	<script  type="text/javascript">
+		/*         var _flag1 = false; // 全局变量，用于记住鼠标是否在DIV上
+		 document.getElementById('sel_1').onmouseover = function () {
+		 _flag1 = true;
+		 };
+
+		 document.getElementById('sel_1').onmouseout = function () {
+		 _flag1 = false;
+		 };
+
+
+		 document.body.onclick = function () {
+		 if (_flag1) {
+		 } else {
+		 $("#sel_div1").slideUp(100);
+		 } 
+		 };
+		 */
+		function sle_show(id) {
+			$("#" + id).slideDown(100);
+		}
+		function sle_hide(t, id, xzid) {
+			$("#" + xzid).html($(t).html());
+			$("#" + id).slideUp(100);
+		}
+
+		//获取滚动条当前的位置
+		function getScrollTop() {
+			var scrollTop = 0;
+			if (document.documentElement && document.documentElement.scrollTop) {
+				scrollTop = document.documentElement.scrollTop;
+			} else if (document.body) {
+				scrollTop = document.body.scrollTop;
+			}
+			return scrollTop;
+		}
+
+		//获取当前可是范围的高度
+		function getClientHeight() {
+			var clientHeight = 0;
+			if (document.body.clientHeight
+					&& document.documentElement.clientHeight) {
+				clientHeight = Math.min(document.body.clientHeight,
+						document.documentElement.clientHeight);
+			} else {
+				clientHeight = Math.max(document.body.clientHeight,
+						document.documentElement.clientHeight);
+			}
+			return clientHeight;
+		}
+
+		//获取文档完整的高度
+		function getScrollHeight() {
+			return Math.max(document.body.scrollHeight,
+					document.documentElement.scrollHeight);
+		}
+
+		var check = 0;
+		window.onscroll = function() {
+			if (getScrollTop() + getClientHeight() == getScrollHeight()) {
+			//	var _check = $("#team_info").attr("check");
+			//	if (check != _check) {
+				//	check = _check;
+			//		$("#team_info").html("");
+			//	}
+
+				/*	 for (var i = 0; i < 2; i++) {
+				 var html = "     <div class=\"team_info_block\">\
+				 <div style=\"width:30%;  padding-left:10%; margin-top:5%; float:left;\">\
+				 <img src=\"images/bz.png\" style=\"height: auto;width: auto\9;width: 80%;\" />\
+				 </div>\
+				 <div style=\"float:left; width:58%;   margin-top:5%;\">\
+				 <p style=\"color:#d2fc31; font-size:28px; margin-top:10px; \">\
+				 哈利路亚俱乐部\
+				 </p>\
+				 <p style=\"color:#fff; font-size:22px;  margin-top:10px;\">\
+				 松江区 进才中学北校\
+				 </p>\
+				 <p style=\" font-size:20px; margin-top:10px;\">\
+				 <a style=\" display:block; text-align:center; line-height:30px; height:30px; background-color:#d2fc31; width:100px;\">\
+				 加入\
+				 </a>\
+				 </p>\
+				 </div>\
+				 </div> ";
+				 $("#team_info").append(html);
+				 } */
+				 var currPage = $("#currPage").val();
+				 if(currPage >1){
+				 findTeams();}
+			}
+
+		}
+
+		function _click(id, check) {
+			//修改数据层状态
+			$("#team_info").attr("check", check);
+			$(".btn_bg").each(function() {
+				$(this).css("background-image", "url('images/cz.png')");
+			});
+			$("#" + id).css("background-image", "url('images/xz.png')");
+			$("#team_info").html("");
+			$("#currPage").val(1);
+			findTeams();
+
+		}
+	</script>
+	<script type="text/javascript">
+		$(function() {
+			loadSportTypeList();
+			$("#team_info").html("");
+			$("#currPage").val(1);
+			findTeams();
+
+			$("#findTeam").click(function() {
+				$("#team_info").html("");
+				$("#currPage").val(1);
+				findTeams();
+			});
+		});
+
+		//var pageSize = 4;
+		//var currPage = 1;
+		function findTeams() {
+			var pageSize = $("#pageSize").val();
+			var currPage = $("#currPage").val();
+			var totals = $("#total").val();
+			if (totals != 0) {
+				//alert('pageSize='+pageSize+',currPage='+currPage+',totals='+totals);
+				if (parseInt(totals % pageSize) == 0) {
+					tempCurr = parseInt(totals / pageSize);
+				} else {
+					tempCurr = parseInt(totals / pageSize + 1);
+				}
+				//alert('tempCurr='+tempCurr);
+				if (tempCurr < currPage) {
+					layer.msg("已经是最后一条了！");
+					return false;
+				}
+			}
+			var teamName = $("#teamName").val();
+			var regionId = $("#regionId").find("option:selected").val();
+			var regionFlag = $("#regionId").val();
+			var teamTypeFlag = $("#team_info").attr("check");
+			if (teamTypeFlag == 0) {
+				teamType = 1;
+			} else {
+				teamType = 2;
+			}
+			if (regionFlag == '' || regionFlag == null) {
+				regionId = '-1';
+			}
+			if (teamName == '' || teamName == null) {
+				teamName = '-1';
+			}
+
+			//var teamType = 1;
+
+			$.ajax({
+						url : '/xinmin/team/teamList.do',
+						async : false, //--false即为 同步
+						type : 'POST',
+						dataType : 'json',
+						//data : dataParams,
+						data : {
+							teamName : teamName,
+							regionId : regionId,
+							teamType : teamType,
+							pageSize : pageSize,
+							currPage : currPage
+						},
+						success : function(data) {
+							//console.log(data);
+							//if(data.)
+							//alert(jsonData.length);
+							if(data.status==200){
+							var jsonData = data.data.results;
+							var objHtml = "";
+							for (var i = 0; i < jsonData.length; i++) {
+								objHtml += "<div class='team_info_block'>";
+								objHtml += "<div style=\"width:150px; height:165px;    padding-right:2%;  padding-left:5%; margin-top:5%; float:left;\">";
+								//objHtml += "<div style=\"width:30%;  padding-left:10%; margin-top:5%; float:left;\">";
+								
+								//objHtml += "<img src='"
+									//	+ jsonData[i].teamLogo
+								//		+ " 'style=\"height: auto;width: auto\9;width: 80%;\" />";
+								
+								objHtml += "<a href=\"/xinmin/user.html?id="
+									    + jsonData[i].id + "\"><img src='"
+										+ jsonData[i].teamLogo
+										+ " 'style=\"width:155px; height:146px; border-radius:100%;\"  />";
+								objHtml += "</a>";
+								objHtml += "</div>";
+								objHtml += "<div style=\"float:left; width:55%;   margin-top:5%;\">";
+								objHtml += "<p style=\"color:#d2fc31; font-size:28px; margin-top:10px; \">";
+								objHtml += jsonData[i].teamName;
+								objHtml += "</p>";
+								objHtml += "<p style=\"color:#fff; font-size:22px;  margin-top:10px;\">";
+								//alert(typeof (jsonData[i].regionId));
+								switch(jsonData[i].regionId){
+								case '310101':
+									objHtml+="黄浦区&nbsp;&nbsp;";
+								break;
+								case '310104':
+									objHtml+="徐汇区&nbsp;&nbsp;";
+								break;
+								case '310105':
+									objHtml+="长宁区&nbsp;&nbsp;";
+								break;
+								case '310106':
+									objHtml+="静安区&nbsp;&nbsp;";
+								break;
+								case '310107':
+									objHtml+="普陀区&nbsp;&nbsp;";
+								break;
+								case '310108':
+									objHtml+="闸北区&nbsp;&nbsp;";
+								break;
+								case '310109':
+									objHtml+="虹口区&nbsp;&nbsp;";
+								break;
+								case '310110':
+									objHtml+="杨浦区&nbsp;&nbsp;";
+								break;
+								case '310112':
+									objHtml+="闵行区&nbsp;&nbsp;";
+								break;
+								case '310113':
+									objHtml+="宝山区&nbsp;&nbsp;";
+								break;
+								case '310114':
+									objHtml+="嘉定区&nbsp;&nbsp;";
+								break;
+								case '310115':
+									objHtml+="浦东新区&nbsp;&nbsp;";
+								break;
+								case '310116':
+									objHtml+="金山区&nbsp;&nbsp;";
+								break;
+								case '310117':
+									objHtml+="松江区&nbsp;&nbsp;";
+								break;
+								case '310118':
+									objHtml+="青浦区&nbsp;&nbsp;";
+								break;
+								case '310107':
+									objHtml+="普陀区&nbsp;&nbsp;";
+								break;
+								case '310120':
+									objHtml+="奉贤区&nbsp;&nbsp;";
+								break;
+								case 310230:
+									objHtml+="崇明县&nbsp;&nbsp;";
+								break;
+								default:; 
+								} 
+								objHtml += jsonData[i].schoolName;
+								objHtml += "</p>";
+								objHtml += "<p style=\" font-size:20px; margin-top:10px;\">";
+								objHtml += "<a style=\" display:block; text-align:center; line-height:30px; height:30px; background-color:#d2fc31; width:100px;\" href=\"/xinmin/user.html?id="
+										+ jsonData[i].id + "\">";
+								objHtml += "加入";
+								objHtml += "</a>";
+								objHtml += "</p>";
+								objHtml += "</div>";
+								objHtml += "</div>";
+							}
+							$("#team_info").append(objHtml);
+							$("#currPage").val(parseInt(data.data.currPage) + 1);
+							$("#total").val(data.data.total);
+							}else if(data.status==500){
+								//layer.msg(data.message);
+								//layer.tips(data.message, '#team_info');
+								$("#team_info").append("<div style='width:200px;margin-left:auto;margin-right:auto;text-align:center;color: #ff6a00;font-size:20px;'>"+data.message+"</div>");
+							}
+
+						}
+					});
+		}
+
+		function loadSportTypeList() {
+			var a = "<option style=\"color:#000000;\" value=\'-1\'>请选择</option>";
+
+			jQuery.ajax({
+						url : '/xinmin/address/list.do',
+						type : 'POST',
+						dataType : 'json',
+						data : {
+							level : 3,
+							parentId : 310100
+						},
+						success : function(data) {
+							var myObject = data.data;
+							for (var i = 0; i < myObject.length; i++) {
+								//alert(myObject[i].id+"   "+myObject[i].name);
+								a += "<option  style=\"color:#000000;\" value=\'"+myObject[i].id+"\'>"
+										+ myObject[i].name + "</option>";
+							}
+							$("#regionId").html(a);
+						},
+						error : function() {
+							//alert('error');
+						}
+					});
+		}
+		
+		function img_seover(){ 
+	 		$("#imgs").attr("src","/xinmin/images/top_hui.png");
+	 	}
+		function img_out(){
+	 		$("#imgs").attr("src","/xinmin/images/top_black.png");
+	 	}
+		
+	</script>
+
+</body>
+</html>

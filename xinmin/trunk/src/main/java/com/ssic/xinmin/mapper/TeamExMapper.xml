@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssic.xinmin.mapper.TeamExMapper" >
+ 	<select id="findOne" parameterType="java.lang.String" resultType="Map">
+ 		 select te.team_name as teamName,ad.name as addressName,te.school_name as schoolName,te.team_logo as teamLogo,te.team_desc as teamDesc,te.id as teamId from xm_team te inner join xm_addresses ad on te.region_id = ad.id  where te.id=#{id}
+ 	</select>
+ 	<select id="findCounts" parameterType="java.lang.String" resultType="Integer">
+select count(*) from xm_users where team_id =#{id}  and stat=1
+ 	</select>
+</mapper>

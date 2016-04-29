@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="script/jquery-1.9.1.min.js"></script>
+    <link href="css/site_info.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <ul>
+                <li>
+                    <a href="#">首页</a>
+                </li>
+                <li>
+                    <a href="#">赛事介绍</a>
+                </li>
+                <li>
+                    <a href="#">赛事球队</a>
+                </li>
+                <li>
+                    <a href="#">赛事安排</a>
+                </li>
+                <li>
+                    <a href="#">赛事规程</a>
+                </li>
+            </ul>
+        </div>
+
+        <div style="position:relative; padding:10px 0; background:#d2fc31;">
+            <!--图片轮播-->
+            <div class="gallery">
+            </div>
+            <script src="script/imgShow.js"></script>
+            <script>
+                var _width = $(".gallery").width();
+                $(function () {
+                    var galleryImgArr = [{ url: "#1", title: "", img: "images/t.png" },
+                                        { url: "#2", title: "", img: "images/t.png" }];
+
+                    var opt = {
+                        imgArr: galleryImgArr,		//图片数组
+                        speed: 4000,					//两次切换时间间隔
+                        imgSize: { width: _width, height: "450" },//展示尺寸
+                        direction: "left",			//图片切换方向
+                        animation: "",				//图片切换动画
+                        titleFlag: "left",			//标题位置
+                        mask: true,				//是否有标题遮罩层
+                        dotFlag: "right",			//圆点提示图
+                        control: "in"			   	//控制按钮
+                    }
+                    $('.gallery').gallery(opt);
+                    $(' .gallery_img img').css("width", _width);
+                })
+            </script>
+            <div class="crate_btn">
+                创建球队
+            </div>
+
+            <div class="join_btn">
+                加入球队
+            </div>
+        </div>
+
+        <div class="site_info">
+            <div class="site">
+                <div style="float:left; margin-left:150px; margin-right:80px; height:250px;">
+                    <img src="images/1.png" style="height: auto;width: auto\9;width: 100%;" />
+                </div>
+                <div style="float:left;">
+                    <p style="font-size:30px; color:#d2fc31; margin-top:50px;">前期预热</p>
+                    <p style="font-size:30px; color:#fff; margin-top:0px;">About</p>
+                    <p style="font-size:36px; color:#d2fc31; margin-top:10px;">2015.5.18</p>
+                    <p style="font-size:22px; color:#fff; margin-top:10px; width:640px; ">启动仪式、发布比赛相关信息、正式启动报名</p>
+                </div>
+            </div>
+
+            <div class="site1">
+                <div style="float:left; margin-left:400px; margin-right:80px; height:250px;">
+                    <img src="images/2.png" style="height: auto;width: auto\9;width: 100%;" />
+                </div>
+                <div style="float:left;">
+                    <p style="font-size:26px; color:#000; margin-top:20px; font-weight:bold;">区县预赛</p>
+                    <p style="font-size:30px; color:#fff; margin-top:0px;">About</p>
+                    <p style="font-size:36px; color:#858588; margin-top:10px;">2015.5.18</p>
+                    <p style="font-size:20px; color:#373a3a;   width:400px; ">
+                        青浦、松江、金山
+                    </p>
+                    <p style="font-size:20px; color:#373a3a;  width:400px;">
+                        嘉定、宝山、崇明
+                    </p>
+                    <p style="font-size:20px; color:#373a3a;   width:400px;">
+                        浦东、南汇、奉贤
+                    </p>
+                    <p style="font-size:20px; color:#373a3a;  width:400px;">
+                        闵行、杨浦、闸北、虹口
+                    </p>
+                    <p style="font-size:20px; color:#373a3a;   width:400px;">
+                        黄埔、徐汇、静安、长宁
+                    </p>
+                </div>
+            </div>
+
+            <div class="site">
+                <div style="float:left; margin-left:50px; margin-right:80px; height:250px;">
+                    <img src="images/3.png" style="height: auto;width: auto\9;width: 100%;" />
+                </div>
+                <div style="float:left; padding-bottom:15px;">
+                    <p style="font-size:30px; color:#d2fc31; margin-top:20px;">市总决赛</p>
+                    <p style="font-size:30px; color:#fff; margin-top:0px;">About</p>
+                    <p style="font-size:36px; color:#878787; margin-top:0px;">2015.5.18</p>
+                    <p style="font-size:20px; color:#fff;   width:800px;">
+                        【DAY1：赛前训练营】邀请上还知名教练和球员给参赛者进行足球培训。
+                    </p>
+                    <p style="font-size:20px; color:#fff;   width:800px;">
+                        【DAY2、3：开幕式+小组赛】小组赛单循环；按抽签分组；小组前两名晋级淘汰赛。
+
+                    </p>
+                    <p style="font-size:20px; color:#fff;   width:800px;">
+                        【DAY4：淘汰赛】各组别16支队伍最终决出四强。
+
+                    </p>
+                    <p style="font-size:20px; color:#fff;   width:800px;">
+                        【DAY5：俱乐部参观】参观上海俱乐部
+
+                    </p>
+                    <p style="font-size:20px; color:#fff;   width:800px;">
+                        【DAY6：半决赛+实战训练营】半决赛；上海足球明星指导
+
+
+                    </p>
+                    <p style="font-size:20px; color:#fff;   width:800px;">
+                        【DAY7：总决赛+闭幕式】各组别冠亚军决赛
+                    </p>
+
+                    <p style="font-size:20px; color:#fff;   width:800px;">
+                        【DAY8：观看中超比赛】欢迎中超比赛
+                    </p>
+
+
+                </div>
+
+            </div> 
+        </div>
+
+        <div class="site2">
+            <div class="site2_l">
+                <div style="width:70%; margin-left:100px; margin-top:60px; ">
+                    <p style="font-size:30px; color:#000;font-weight:bold; ">赛事介绍</p>
+                    <p style="color:#d2fc31; font-size:28px;">About</p>
+                    <p style="line-height:25px; font-size:18px;">
+                        新民晚报暑期中学生足球赛是由上海市教委、上海市体育局和新民晚报社联合主办，上海市足协、北京欧迅体育协办的上海市青少年业余经典品牌赛事。赛事将全面覆盖上海市17个区县，超过上千所中学的全体在校学生。
+                    </p>
+                    <p style="line-height:25px;  font-size:18px; ">
+                        2015年，正值新民晚报暑期中学生足球赛历时30周年之际，在尊重传统基础上，赛事力求与时俱进，通过全面推行线上报名；增设明星足球训练营、比赛日嘉年华等周边活动等方式，全方位提升参赛者的参与体验，打造具有传承性的青少年足球赛事盛会。
+                    </p>
+                </div>
+                <div style="width:100%; background-color:#d2fc31; height:80px; margin-top:30px; padding-top:35px;">
+                    <a style="display:block; border:3px solid #000; padding:10px 0px; width:150px; text-align:center;  margin-left:100px; ">
+                        更多介绍
+                    </a>
+                </div>
+            </div>
+            <div class="site2_r">
+                <img src="images/tu.png"style="height:572px;" />
+            </div>
+
+            
+        </div>
+
+
+        <div style="width:100%;height:80px; background:#373a3a; ">
+
+        </div>
+
+        <div style="width:100%; background-color:#d2fc31; height:40px; ">
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,485 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>加入球队</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no, initial-scale=1.0">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="css/join.css" rel="stylesheet" />
+    <script src="/xinmin/js/jquery-2.1.3.min.js"></script>
+    <script src="/xinmin/js/layer-1.9/layer.js"></script>
+    <script src="/xinmin/js/jquery.form.js"></script>
+    <script src="/xinmin/js/jquery.upload.js"></script>
+        <script src="/xinmin/js/My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript">
+$(document).ready(function(){
+     $("#upload").upload({
+         uploadData: { id: "12233" },
+         successFn: "success",
+         deleteData: { id: function () { return "asdfasdf" } }
+     });
+});
+function valiName(){
+    var name = $("#name").val();
+    if(name==''||name==null){
+        layer.msg('请输入名称！');  
+        return false;
+    }if(name.length>20){
+        layer.msg('名称不能大于20个字！'); 
+        return false;
+    }else{
+        return true;
+    }
+}
+function valiIdent(){
+    var identify = $("#identify").val();
+    //身份证正则表达式(15位)   
+    isIDCard1=/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/;   
+    //身份证正则表达式(18位)   
+    isIDCard2=/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{4}$/; 
+    
+    if(identify==''||identify==null){
+        layer.msg('请输入证件号！'); 
+        return false;
+    }/* else if(identify.length<11){
+        layer.msg("证件号不能小于11位!",'#identify');
+        return false;
+    }else if(identify.length>20){
+        layer.msg("证件号不能大于20位!",'#identify');
+        return false;
+    } 
+    else if(!isIDCard1.test(identify) && !isIDCard2.test(identify)){
+        layer.msg("身份证格式不对！");
+        return false;
+    }*/
+    else if(identify.length!=18&&identify.length!=15){
+        layer.msg("身份证格式不对");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+function vailBirt(){
+    var birthday = $("#birthday").val();
+    var tempTime = new Date(birthday);
+    var nows = new Date();
+    if(nows.getTime()<=tempTime.getTime()){
+        layer.msg('出生日期不能大于当前日期');
+    }
+    
+}
+function vailmobile(){
+    var mobile = $("#mobile").val();
+    var phone_reg = /^(((13[0-9]{1})|147|(15[0-3]{1})|(15[5-9]{1})|(18[0-3]{1})|(18[5-9]{1}))+\d{8})$/; 
+    
+    if(mobile==''||mobile==null){
+        
+        layer.msg('请输入手机号!');
+        return false;
+    }else if (!phone_reg.test(mobile)) {        
+        layer.msg('手机号码格式不对！');
+        
+        return false;
+    }else{
+        return true;
+    }
+}
+function vailParentName(){
+    var parentName=$("#parentName").val();
+    if(parentName==''||parentName==null){
+        layer.msg('请输入监护人姓名!');
+        return false;
+    }if(parentName.length>20){
+        layer.msg('监护人姓名大于20个字！');  
+        return false;
+    }else{
+        return true;
+    }
+}
+function vailParentMobile(){
+    var parentMobile=$("#parentMobile").val();
+    var phone_reg = /^(((13[0-9]{1})|147|(15[0-3]{1})|(15[5-9]{1})|(18[0-3]{1})|(18[5-9]{1}))+\d{8})$/; 
+    
+    if(parentMobile==''||parentMobile==null){
+        layer.msg('请输入监护人手机号!');
+        return false;
+    }else if(!phone_reg.test(parentMobile)){
+        layer.msg('监护人手机号格式不正确!');
+        return false;
+    }else{
+        return true;
+    }
+}
+
+function vailOrgin(){
+    var orgin=$("#orgin").val();
+    if(orgin.length>30){
+        layer.msg('籍贯不能大于30个字！');    
+        return false;
+    }else{
+        return true;
+    }
+}
+function vailNation(){
+    var nation=$("#nation").val();
+    if(nation.length>18){
+        layer.msg('民族不能大于18个字！');   
+        return false;
+    }else{
+        return true;
+    }
+}
+
+function vailWeight(){
+    var weight=$("#weight").val();
+    var wei_reg=/^[0-9]{1,3}([.][0-9])?$/;
+    if(weight.length>6){
+        layer.msg('体重不能大于5位');  
+        return false;
+    }else if(!wei_reg.test(weight)){
+        layer.msg('体重必须为数字');
+        return false;
+    }else{
+        return true;
+    }
+}
+function vailHeight(){
+    var height=$("#height").val();
+    var wei_reg=/^[0-9]{1,3}([.][0-9])?$/;
+    if(height.length>6){
+        layer.msg('身高不能大于5位');  
+        return false;
+    }else if(!wei_reg.test(height)){
+        layer.msg('身高必须为数字');
+        return false;
+    }else{
+        return true;
+    }
+}
+
+function vailstudent(){
+    var students =$("#students").val();
+    if(students==''||students==null){
+        layer.msg('学籍卡不能为空!');
+        return false;
+    }else if(students.length!=19){
+        layer.msg('学籍卡位数不正确,请重新填写!');
+        return false;
+    }else{
+        return true;
+    }
+}
+</script>
+</head>
+<body>
+    <div class="container-fluid">  
+        <form role="form" class="form-horizontal" method="post">
+            <div class="header">
+                <div class="header_text">
+                    加 入 球 队
+                </div>
+            </div>
+            <div class="title">
+                1.填写个人信息
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="name">
+                    <span style="color:#ff6a00">*</span> 姓名
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" name="name" type="text"  placeholder="姓名" value="" id="name" onblur="return valiName()"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="exampleInputPassword1">
+                    <span style="color:#ff6a00">*</span> 身份证
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" name="name" type="text"  placeholder="身份证" value="" id="identify" onblur="return valiIdent()"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="intro" class="control-label col-md-2">
+                    <span style="color:#ff6a00">*</span> 生日
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control Wdate input" name="name" type="text" id="birthday" placeholder="生日" onclick="WdatePicker()" onblur="return vailBirt()"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="intro" class="control-label col-md-2">
+                    <span style="color:#ff6a00">*</span> 手机
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" name="name" type="text" id="mobile" placeholder="手机" value=""  onblur="return vailmobile()"/>
+                </div>
+            </div>
+ <div class="form-group">
+                <label for="intro" class="control-label col-md-2">
+                    <span style="color:#ff6a00">*</span> 学籍卡 
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" name="name" type="text" id="students" placeholder="学籍卡" value=""  onblur="return vailstudent()"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="intro" class="control-label col-md-2">
+                    <span style="color:#ff6a00">*</span> 头像
+                </label>
+                <div class="col-md-10">
+                     <input type="hidden" name="thumbnail" id="hfThumbnail" value="/upload/guding/logo.png" />
+                    <a href="javascript:viod(0);" class="file" style="float:left; margin-right:10px;  ">
+                        选择文件
+                   
+                        <input type="file" name="file" id="uploadObjId">
+                        <a href="javascript:void(0);" id="upload" class="file" style="float:left; margin-right:10px;  ">
+                        上传
+                        <!-- <input type="button" name="file"> -->
+                    </a>
+                    </a>   
+                    <img id="userImageS" src="/upload/guding/logo.png" width="185" style="width:185px; height:186px; border-radius:100%; margin-top:5px;" /> 
+                    <p style="color:#FF9900; margin-top:3px;">
+                       头像清晰，需要本人照片、若不清晰将直接影响报名审核结果,上传图片需小于1M
+                    </p>
+                </div>
+            </div>
+
+            <div class="title">
+                2.监护人信息
+            </div>
+             <div class="form-group">
+                <label class="col-md-2 control-label" for="name">
+                    <span style="color:#ff6a00">*</span> 姓名
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" name="name" type="text"  id="parentName" placeholder="姓名" value=""  onblur="return vailParentName()"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="intro" class="control-label col-md-2">
+                    <span style="color:#ff6a00">*</span> 手机
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" name="name" type="text" id="parentMobile" placeholder="手机" value="" onblur="return vailParentMobile()"/>
+                </div>
+            </div>
+
+            <div class="title">
+                3.其他信息
+            </div>
+            <div class="form-group">
+                <label for="intro" class="control-label col-md-2">
+                     籍贯
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" name="name" type="text" id="orgin" placeholder="籍贯" value=""  onblur="return vailOrgin()"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="intro" class="control-label col-md-2">
+                   民族
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" name="name" type="text" id="nation" placeholder="民族" value="" onblur="return vailNation()"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="intro" class="control-label col-md-2">
+                   身高(CM)
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" name="name" type="text" id="height" placeholder="身高" value="" onblur="return vailHeight()"/>
+                </div>
+            </div>
+ 
+ <div class="form-group">
+                <label for="intro" class="control-label col-md-2">
+                            体重(KG)
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" name="name" type="text" id="weight" placeholder="体重" value="" onblur="return vailWeight()"/>
+                </div>
+            </div>
+ 
+
+            <div class="form-group">
+                <label for="sel" class="control-label col-md-2">
+               位置
+                </label>
+                <div class="col-md-10">
+                    <select   id="posSel" name="sel" class="form-control">
+                        <option value="1">中场</option>
+                        <option value="2">前卫</option>
+                        <option value="3">前锋</option>
+                        <option value="4">后卫</option>
+                        <option value="5">门将</option>
+                    </select>
+                </div>
+            </div>
+
+             
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <button id="join" type="button" class="btn btn-primary btn-lg" style="width:100%;">
+                        加&nbsp;&nbsp;入
+                    </button>
+                    <!--<button type="reset" class="btn btn-primary btn-sm">
+                        Reset
+                    </button>-->
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $("#join").click(function(){
+        var name =$("#name").val();
+        var identify=$("#identify").val();
+        var birthday = $("#birthday").val();
+        var mobile = $("#mobile").val();
+        var parentName=$("#parentName").val();
+        var parentMobile = $("#parentMobile").val();
+        var nation=$("#nation").val();
+        var orgin = $("#orgin").val();
+        var weight = $("#weight").val();
+        var userImage=$("#hfThumbnail").val();
+        var students=$("#students").val();
+        var height=$("#height").val();
+        var posSel=$("#posSel").find("option:selected").val(); 
+        //if(name==''||identify==''||birthday==''||mobile==''||userImage==''||parentName==''||parentMobile==''||students==''){
+         //   layer.msg("带*框信息不能为空!");
+        //    return false;
+       // }
+        //if((valiName()&&valiIdent()&&vailBirt()&&vailmobile()&&vailParentName()&&vailParentMobile())){
+        //	return false;
+       // }
+   			if(name==''){
+   				layer.msg("姓名不能为空");	
+   				return false;
+   			}
+   			if(identify==''){
+   				layer.msg("身份证不能为空");	
+   				return false;
+   			}
+   			if(birthday==''){
+   				layer.msg("生日不能为空");	
+   				return false;
+   			}
+   			if(mobile==''){
+   				layer.msg("手机不能为空");
+   				return false;
+   			}
+   			if(userImage==''){
+   				layer.msg("上传图片不能为空");
+   				return false;
+   			}
+   			if(parentName==''){
+   				layer.msg("监护人姓名不能为空");
+   				return false;
+   			}
+   			if(parentMobile==''){
+   				layer.msg("监护人电话不能为空");
+   				return false;
+   			}
+   			if(students==''){
+   				layer.msg("学籍卡不能为空");
+   				return false;
+   			}
+   			
+            var phone_reg = /^(((13[0-9]{1})|147|(15[0-3]{1})|(15[5-9]{1})|(18[0-3]{1})|(18[5-9]{1}))+\d{8})$/; 
+            var wei_reg=/^[0-9]{1,3}([.][0-9])?$/;
+        var captainPhone = $("#mobile").val();
+        if (!phone_reg.test(captainPhone)) {        
+            //layer.msg('手机号码格式不对！', '#captainPhone');
+            layer.msg("手机号码格式不对");
+            return false;
+        }
+        if(!phone_reg.test(parentMobile)){
+            layer.msg("监护人手机号码格式不对");
+            return false;
+        }
+        if(identify.length<11){
+            layer.msg("证件号不能小于11位");
+            return false;
+        }
+        if(identify.length!=18&&identify.length!=15){
+            layer.msg("身份证格式不对");
+            return false;
+        }
+        /* if(identify.length>20){
+            layer.msg("证件号不能大于20位");
+            return false;
+        }
+        //身份证正则表达式(15位)   
+        isIDCard1=/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/;   
+        //身份证正则表达式(18位)   
+        isIDCard2=/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{4}$/; 
+        if(!isIDCard1.test(identify) && !isIDCard2.test(identify)){
+
+            layer.msg("身份证格式不对！");
+            return false;
+        } */
+        if(students.length!=19){
+            layer.msg("学籍卡位数不正确，请重新填写");
+            return false;
+        }
+        if(nation!=''&&nation!=null&&nation.length>18){
+            layer.msg('民族不能大于18个字！');   
+            return false;
+        }
+        if(orgin!=''&&orgin!=null&&orgin.length>30){
+            layer.msg('籍贯不能大于30个字！');   
+            return false;
+        }
+        if(weight!=null&&weight!=''&&!wei_reg.test(weight)){
+            layer.msg('身高不符合要求');
+            return false;
+        }
+        if(weight!=null&&weight!=''&&weight.length>6){
+            layer.msg('体重不能大于5位');
+            return false;
+        }
+        if(height!=null&&height!=''&&!wei_reg.test(height)){
+            layer.msg('身高不符合要求');
+            return false;
+        }
+        
+        if(height!=null&&height!=''&&height.length>6){
+            
+            layer.msg('身高不能大于5位');
+            return false;
+        }
+        
+        var birthday = $("#birthday").val();
+        var tempTime = new Date(birthday);
+        var nows = new Date();
+        if(nows.getTime()<=tempTime.getTime()){
+            layer.msg('出生日期不能大于当前日期');
+            return false;
+        }
+        
+        jQuery.ajax({
+            url:'/xinmin/umanages/join.do',
+            type:'POST',
+            dataType :'json',
+            data :{realName:name,identifyId:identify,tempBirthday:birthday,mobileNo:mobile,guardName:parentName,guardMobile:parentMobile,orgin:orgin,nation:nation,userImage:userImage,pos:posSel,studentCard:students,height:height,weight:weight},
+            success : function(data){
+                if(data.status==200){
+                    layer.msg("加入成功！");
+                    setTimeout(function(){location.href="/xinmin/app/team_info.html?id="+data.data+"";}, 3000 ); 
+                }else{
+                    layer.msg(data.message);
+                }
+            }
+        });
+        
+    });
+    </script>
+</body>
+
+</html> 

@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>创建球队</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no, initial-scale=1.0">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" /> 
+    <link href="css/crate.css" rel="stylesheet" />
+    <script src="/xinmin/js/jquery-2.1.3.min.js"></script>
+    <script src="/xinmin/js/layer-1.9/layer.js"></script>
+    <script src="/xinmin/js/jquery.form.js"></script>
+    <script src="/xinmin/js/jquery.upload.js"></script>
+    <script src="/xinmin/app/js/create.js"></script>
+</head>
+<body>
+    <div class="container-fluid" >   
+        <form role="form" class="form-horizontal" method="post">
+            <div class="header" style="margin-bottom:10px;">
+                <div class="header_text">
+                    创 建 球 队
+                </div>
+            </div>
+             
+
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="name" >
+                    <span style="color:#ff6a00">*</span> 球队名称
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" name="name" type="text" id="teamName" placeholder="球队名称" value="" onblur="return check_teamName();"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="exampleInputPassword1">
+                    <span style="color:#ff6a00">*</span>所在县区
+                </label>
+                <div class="col-md-10">
+                    <select id="regionId" name="sel" class="form-control">
+                        
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="intro" class="control-label col-md-2">
+                    <span style="color:#ff6a00">*</span> 学校
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" name="name" type="text" id="schoolName" placeholder="学校" value="" onblur="return check_schoolName();"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="intro" class="control-label col-md-2">
+                    <span style="color:#ff6a00">*</span> 参赛组别
+                </label>
+                <div class="col-md-10">
+                    <label class="radio-inline">
+                        <input type="radio" name="teamType" value="1"  checked="checked"/>
+                        初中组
+                    </label>
+
+                    <label class="radio-inline">
+                        <input type="radio" name="teamType" value="2" />
+                        高中组
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="intro" class="control-label col-md-2">
+                    <span style="color:#ff6a00">*</span> 领队名称
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" name="name" type="text" id="captainName" placeholder="领队名称" value=""  onblur="return check_captainName();"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="intro" class="control-label col-md-2">
+                    <span style="color:#ff6a00">*</span> 领队手机
+                </label>
+                <div class="col-md-10">
+                    <input class="form-control" name="name" type="text" id="captainPhone" placeholder="领队手机" value="" onblur="return check_captainPhone();" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="intro" class="control-label col-md-2">
+                    <span style="color:#ff6a00">*</span> 球队介绍
+                </label>
+                <div class="col-md-10">
+                    <textarea id="teamDesc" class="form-control" rows="3" name="intro" placeholder="球队介绍，240字以内"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="intro" class="control-label col-md-2">
+                    <span style="color:#ff6a00">*</span> 球队logo
+                </label>
+                <div class="col-md-10">
+                  <input type="hidden" name="thumbnail" id="hfThumbnail" value="/upload/guding/logo.png" />
+                    <a href="javascript:void(0);" class="file" style="float:left; margin-right:10px;  ">
+                        选择文件
+                      
+                        <input type="file" id="uploadObjId" name="file" />
+                        <a href="javascript:void(0);" id="upload" class="file" style="float:left; margin-right:10px;  ">
+                        上传
+                        <!-- <input type="button" name="file"> -->
+                    </a> 
+                    </a>
+                        
+                    <img id="userImageS" src="/upload/guding/logo.png" width="185" style="width:185px; height:186px; border-radius:100%; margin-top:5px;" /> 
+                    <p style="color:#ff9900; margin-top:3px;">
+                            上传图片需小于1M
+                    </p>
+                </div>
+            </div>
+
+            
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="button" id="saveTeamBtn" class="btn btn-primary btn-lg" style="width:100%;" value="创&nbsp;&nbsp;建" />
+                        
+                    <!--<button type="reset" class="btn btn-primary btn-sm">
+            Reset
+        </button>-->
+                </div>
+            </div>
+        </form>
+    </div>
+  
+
+</body>
+</html> 

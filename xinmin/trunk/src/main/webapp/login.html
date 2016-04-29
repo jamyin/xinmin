@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+   <!--  <link href="/css/juju/login.css" rel="stylesheet" />
+    <script src="/js/juju/jquery-2.1.3.min.js"></script>
+    <script src="/js/juju/layer/layer.min.js"></script>  -->
+    
+    <script src="/xinmin/js/jquery-2.1.3.min.js"></script>
+    <script src="/xinmin/js/My97DatePicker/WdatePicker.js"></script>
+       <script src="/xinmin/js/jquery.form.js"></script> 
+    <script src="/xinmin/js/jquery.upload.js"></script> 
+    
+    
+<script type="text/javascript">
+$(document).ready(function(){
+	 $("#upload").upload({
+         uploadData: { id: "12233" },
+         successFn: "success",
+         deleteData: { id: function () { return "asdfasdf" } }
+     });
+});
+</script>
+</head>
+<body>
+姓名:<input type="text" id="name" />
+证件号:<input type="text" id="identify"/>	
+生日:<input id="birthday"  name="startTime" class="Wdate" type="text" onclick="WdatePicker()">
+手机:<input type="text" id="mobile"/>
+头像:<div style="float: left;">
+					<input type="hidden" name="thumbnail" id="hfThumbnail" value="" />
+					<span class="img_span" style="float: left">
+						<a href="javascript:;" class="file">选择文件<input id="uploadObjId" type="file" name="file" ></a> 
+					<!-- <input
+						id="uploadObjId" type="file" name="file" style="width: 150px;" /> -->
+					</span> <a id="upload" class="a" herf="#" style="float:left; margin-left:10px;">上传</a>
+				</div>
+监护人姓名:<input type="text" id="parentName" />
+监护人手机:<input type="text" id="parentMobile" />
+籍贯:<input type="text" id="orgin"/>
+民族:<input type="text" id="nation"/>
+升高/体重:<input type="text" id="weight" />
+位置:<select id="posSel">
+	<option value="1">中场</option>
+	<option value="2">前卫</option>
+	<option value="3">前锋</option>
+	<option value="4">后卫</option>
+	<option value="5">门将</option>
+	</select>
+<input type="button" value="加入" id="join"/>
+
+<script>
+	$("#join").click(function(){
+		var name =$("#name").val();
+		var identify=$("#identify").val();
+		var birthday = $("#birthday").val();
+		var mobile = $("#mobile").val();
+		var parentName=$("#parentName").val();
+		var parentMobile = $("#parentMobile").val();
+		var nation=$("#nation").val();
+		var orgin = $("#orgin").val();
+		var weight = $("#weight").val();
+		var userImage=$("#hfThumbnail").val();
+		
+		jQuery.ajax({
+			url:'/xinmin/umanages/join.do',
+			type:'POST',
+			dataType :'json',
+			data :{realName:name,identifyId:identify,tempBirthday:birthday,mobileNo:mobile,guardName:parentName,guardMobile:parentMobile,orgin:orgin,nation:nation,userImage:userImage},
+			success : function(data){
+				if(data.status==200){
+					alert("加入成功！");
+				}else{
+					alert("加入失败");
+				}
+			}
+		});
+		
+	});
+</script>
+
+	
+</body>
+</html>

@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>加入球队</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no, initial-scale=1.0">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" /> 
+    <link href="css/join_team.css" rel="stylesheet" />
+    <script src="/xinmin/js/jquery-2.1.3.min.js"></script>
+    <script src="/xinmin/js/layer-1.9/layer.js"></script>
+    <script src="/xinmin/js/jquery.form.js"></script>
+    <script src="/xinmin/app/js/touchwipe.js"></script>
+</head>
+<script>
+$(function() {
+	loadSportTypeList();
+	$("#team_info").html("");
+	$("#currPage").val(1);
+	findTeams();
+
+	$("#findTeam").click(function() {
+		$("#team_info").html("");
+		$("#currPage").val(1);
+		findTeams();
+	});
+	// var teamType = 1;
+	
+});
+
+function loadSportTypeList() {
+	var a = "<option style=\"color:#000000;\" value=\'-1\'>请选择</option>";
+
+	jQuery.ajax({
+		url: '/xinmin/address/list.do',
+		type: 'POST',
+		dataType: 'json',
+		data: {
+			level: 3,
+			parentId: 310100
+		},
+		success: function(data) {
+			var myObject = data.data;
+			for (var i = 0; i < myObject.length; i++) {
+				//alert(myObject[i].id+"   "+myObject[i].name);
+				a += "<option  style=\"color:#000000;\" value=\'" + myObject[i].id + "\'>" + myObject[i].name + "</option>";
+			}
+			$("#regionId").html(a);
+		},
+		error: function() {
+			//alert('error');
+		}
+	});
+}
+
+function findTeams() {
+	var pageSize = $("#pageSize").val();
+	var currPage = $("#currPage").val();
+	var totals = $("#total").val();
+
+		if (totals != 0) {
+			//alert('pageSize='+pageSize+',currPage='+currPage+',totals='+totals);
+			if (parseInt(totals % pageSize) == 0) {
+				tempCurr = parseInt(totals / pageSize);
+			} else {
+				tempCurr = parseInt(totals / pageSize + 1);
+			}
+			//alert('tempCurr='+tempCurr);
+			if (tempCurr < currPage) {
+				layer.msg("已经是最后一条了！");
+				return false;
+			}
+		}
+
+	var teamName = $("#teamName").val();
+	var regionId = $("#regionId").find("option:selected").val();
+	var regionFlag = $("#regionId").val();
+	/*var teamTypeFlag = $("#team_info").attr("check");
+	if (teamTypeFlag == 0) {
+		teamType = 1;
+	} else {
+		teamType = 2;
+	}*/
+	if (regionFlag == '' || regionFlag == null) {
+		regionId = '-1';
+	}
+	if (teamName == '' || teamName == null) {
+		teamName = '-1';
+	}
+
+	//var teamType = 1;
+
+	$.ajax({
+		url: '/xinmin/team/teamList.do',
+		async: false, //--false即为 同步
+		type: 'POST',
+		dataType: 'json',
+		//data : dataParams,
+		data: {
+			teamName: teamName,
+			regionId: regionId,
+			teamType: teamType,
+			pageSize: pageSize,
+			currPage: currPage
+		},
+		success: function(data) {
+			//console.log(data);
+			//if(data.)
+			//alert(jsonData.length);
+			if (data.status == 200) {
+				var jsonData = data.data.results;
+				var objHtml = "";
+				for (var i = 0; i < jsonData.length; i++) {
+					// objHtml += "<div class='team_info_block'>";
+					// objHtml += "<div style=\"width:150px; height:165px;    padding-right:2%;  padding-left:5%; margin-top:5%; float:left;\">";
+					//objHtml += "<div style=\"width:30%;  padding-left:10%; margin-top:5%; float:left;\">";
+
+					//objHtml += "<img src='"
+					//	+ jsonData[i].teamLogo
+					//		+ " 'style=\"height: auto;width: auto\9;width: 80%;\" />";
+
+					// objHtml += "<a href=\"/xinmin/user.html?id=" + jsonData[i].id + "\"><img src='" + jsonData[i].teamLogo + " 'class=\"team_img\"  />";
+					// objHtml += "</a>";
+					// objHtml += "</div>";
+					// objHtml += "<div style=\"float:left; width:55%;   margin-top:5%;\">";
+					// objHtml += "<p style=\"color:#d2fc31; font-size:28px; margin-top:10px; \">";
+					// objHtml += jsonData[i].teamName;
+					// objHtml += "</p>";
+					// objHtml += "<p style=\"color:#fff; font-size:22px;  margin-top:10px;\">";
+
+					objHtml += '<div class="row">';
+                	objHtml += '<div class="col-xs-4" style="margin:5px 0;">';
+                    objHtml += '<a href=\"/xinmin/app/team_info.html?id='+ jsonData[i].id + '\"><img src="'+ jsonData[i].teamLogo +'" class="team_img" /></a>';
+                	objHtml += '</div>';
+                	objHtml += '<div class="col-xs-8" style="text-align:center;">';
+                    objHtml += '<p style="font-size:20px; font-weight:bold; color:rgb(210,252,48);">'+ jsonData[i].teamName +'</p>';
+                    objHtml += '<p style="font-size:20px; color:#fff;">';
+
+
+					//alert(typeof (jsonData[i].regionId));
+					switch (jsonData[i].regionId) {
+						case '310101':
+							objHtml += "黄浦区&nbsp;&nbsp;";
+							break;
+						case '310104':
+							objHtml += "徐汇区&nbsp;&nbsp;";
+							break;
+						case '310105':
+							objHtml += "长宁区&nbsp;&nbsp;";
+							break;
+						case '310106':
+							objHtml += "静安区&nbsp;&nbsp;";
+							break;
+						case '310107':
+							objHtml += "普陀区&nbsp;&nbsp;";
+							break;
+						case '310108':
+							objHtml += "闸北区&nbsp;&nbsp;";
+							break;
+						case '310109':
+							objHtml += "虹口区&nbsp;&nbsp;";
+							break;
+						case '310110':
+							objHtml += "杨浦区&nbsp;&nbsp;";
+							break;
+						case '310112':
+							objHtml += "闵行区&nbsp;&nbsp;";
+							break;
+						case '310113':
+							objHtml += "宝山区&nbsp;&nbsp;";
+							break;
+						case '310114':
+							objHtml += "嘉定区&nbsp;&nbsp;";
+							break;
+						case '310115':
+							objHtml += "浦东新区&nbsp;&nbsp;";
+							break;
+						case '310116':
+							objHtml += "金山区&nbsp;&nbsp;";
+							break;
+						case '310117':
+							objHtml += "松江区&nbsp;&nbsp;";
+							break;
+						case '310118':
+							objHtml += "青浦区&nbsp;&nbsp;";
+							break;
+						case '310107':
+							objHtml += "普陀区&nbsp;&nbsp;";
+							break;
+						case '310120':
+							objHtml += "奉贤区&nbsp;&nbsp;";
+							break;
+						case 310230:
+							objHtml += "崇明县&nbsp;&nbsp;";
+							break;
+						default:
+							;
+					}
+                    
+					objHtml += jsonData[i].schoolName;
+					objHtml += "</p>";
+					objHtml += '<div class="join">';
+					objHtml += "<a href=\"/xinmin/app/team_info.html?id=" + jsonData[i].id + "\">";
+					objHtml += "加入";
+					objHtml += "</a>";
+					objHtml += '</div>';
+                	objHtml += '</div>';
+            		objHtml += '</div>';
+				}
+				//if (flag) {
+				//	$("#team_info").remove('*');
+				//};
+				$("#team_info").append(objHtml);
+				$("#currPage").val(parseInt(data.data.currPage) + 1);
+				$("#total").val(data.data.total);
+			} else if (data.status == 500) {
+				//layer.msg(data.message);
+				//layer.tips(data.message, '#team_info');
+				$("#team_info").html("<div style='width:200px;margin-left:auto;margin-right:auto;text-align:center;color: #ff6a00;font-size:20px;'>" + data.message + "</div>");
+			}
+
+		}
+	});
+}
+</script>
+<body class="bg">
+    <div class="container-fluid">
+        <input type="hidden" id="pageSize" value="10" />
+        <input type="hidden" id="currPage" value="1" />
+        <input type="hidden" id="total" value="0" />
+        <div class="row">
+            <div class="col-xs-12" style="background-color:#000000; font-size:20px; font-weight:bold; text-align:center; height:50px; line-height:50px; color:rgb(210,252,48); border-bottom:3px solid rgb(210,252,48);">
+                加入球队
+            </div>
+        </div>
+        <div id="header" class="header_bg row" style="border-bottom:5px solid rgb(210,252,48); padding-bottom:10px;background-repeat: no-repeat;background-size: 250%;">
+            <div class="col-xs-6">
+                <div class="_btn" id="defaultChecked" onclick="_toggle(this)">
+                    初中组
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="_btn" onclick="_toggle(this)">
+                    高中组
+                </div>
+            </div>
+            <div class="row" style="width:98%; margin:0 auto;">
+                <div class="col-xs-8">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <select class="sel_" id="regionId">
+
+                            </select>
+                        </div>
+                        <div class="col-xs-12">
+                            <input id="teamName" name="teamName" type="text" class="input" placeholder="输入球队名称" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4" style="height:65px; line-height:70px; color:#fff; font-size:30px; background-color:rgb(255,152,77);border-radius:5px; text-align:center;" id="findTeam">
+                    查询
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+
+        <div class="row " id="team_info" style="position:relative; overflow:hidden;">
+          
+        </div> 
+    </div>
+
+    <script>
+        //获取滚动条当前的位置
+        function getScrollTop() {
+            var scrollTop = 0;
+            if (document.documentElement && document.documentElement.scrollTop) {
+                scrollTop = document.documentElement.scrollTop;
+            }
+            else if (document.body) {
+                scrollTop = document.body.scrollTop;
+            }
+            return scrollTop;
+        }
+
+        //获取当前可是范围的高度
+        function getClientHeight() {
+            var clientHeight = 0;
+            if (document.body.clientHeight && document.documentElement.clientHeight) {
+                clientHeight = Math.min(document.body.clientHeight, document.documentElement.clientHeight);
+            }
+            else {
+                clientHeight = Math.max(document.body.clientHeight, document.documentElement.clientHeight);
+            }
+            return clientHeight;
+        }
+
+        //获取文档完整的高度
+        function getScrollHeight() {
+            return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        }
+         
+        window.onscroll = function () {
+            if (getScrollTop() + getClientHeight() == getScrollHeight()) { 
+                findTeams();
+                // for (var i = 0; i < 1; i++) {  
+                //     var html = "<div class=\"row\">\
+                //                     <div class=\"col-xs-4\" style=\"margin:5px 0;\">\
+                //                         <img src=\"images/caodi.png\" class=\"team_img\" />\
+                //                     </div>\
+                //                     <div class=\"col-xs-8\" style=\"text-align:center;\">\
+                //                          <p style=\"font-size:20px; font-weight:bold; color:rgb(210,252,48);\">哈利路亚俱乐部</p>\
+                //                          <p style=\"font-size:20px; color:#fff;\">松江区 进才学校</p>\
+                //                          <div class=\"join\">加入</div>\
+                //                      </div>\
+                //                 </div>";
+                //     $("#team_info").append(html);
+                // }
+            }
+        }
+
+
+        function _toggle(t) {
+            $("._btn").each(function () {
+                $(this).css("background-color", "rgb(210,247,61)");
+            });
+            $(t).css("background-color", "rgb(4,182,24)");
+            teamType = !t.id ? 2 : 1;
+            var currPage = $("#currPage").val();
+			 if(currPage >=1){
+			$("#currPage").val(1);
+			$("#team_info").html('');
+			 findTeams();}
+        }
+        $("#defaultChecked").trigger('click');
+    </script>
+
+    
+
+</body>
+</html>

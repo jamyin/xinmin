@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="css/user.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="/xinmin/js/jquery-2.1.3.min.js"></script>
+    <script src="/xinmin/js/My97DatePicker/WdatePicker.js"></script>
+       <script src="/xinmin/js/jquery.form.js"></script> 
+    <script src="/xinmin/js/jquery.upload.js"></script> 
+        <script src="/xinmin/js/layer-1.9/layer.js"></script>
+</head>
+<body>
+<input type="hidden" id="hiddenId"/> 
+  <a  href="http://www.jujusports.cn/xinmin/index.html" style="position:fixed; right:10px; bottom:50%; z-index:9999;"><img  id="imgs" src="/xinmin/images/index_black.png" style="width:70px;" onmouseover="img_seover()" onmouseout="img_out()"/></a>
+ 
+    <div class="container">
+        <div id="user" class="user">
+            <div class="user_header">
+                <div class="user_header_l">
+                    <img style=" width:175px; height:176px; border-radius:100%;margin-top:-25px;margin-left:55px" id="teamPic"/>
+                </div>
+
+                <div class="user_header_c" style="  "> 
+                 <div style="width:20%; min-width:130px; float:left; color:#fff; font-size:26px;   text-align:right;">
+              			   球&nbsp;&nbsp;名:
+                </div> 
+                <div style="width:60%; float:left; color:#d2fc31; font-size:30px;margin-left:2%; " id="teamName">
+                
+                </div>
+                <div style="width:20%; min-width:130px; float:left; color:#fff; font-size:26px;  text-align:right;">
+              			   区&nbsp;&nbsp;域:
+                </div> 
+                <div style="width:60%; float:left; color:#d2fc31; font-size:30px;margin-left:2%;  " id="regionName">
+                
+                </div>
+                <div style="width:20%; min-width:130px; float:left; color:#fff; font-size:26px;    text-align:right;">
+              			   学&nbsp;&nbsp;校:
+                </div> 
+                <div style="width:60%; float:left; color:#d2fc31; font-size:30px;margin-left:2%;  " id="schoolName">
+                
+                </div>
+                 <div style="width:20%; min-width:130px; float:left; color:#fff; font-size:26px;   text-align:right;">
+              			球队人数:
+                </div> 
+                <div style="width:60%; float:left; color:#d2fc31; font-size:30px;margin-left:2%;  " id="teamCount">
+                
+                </div>
+                <!-- 
+                    <p style="color:#fff; font-size:26px; word-wrap:break-word; word-break:normal; word-break:break-all; "><span style="color:#d2fc31; font-size:30px;margin-left:2%;" id="teamName"></span></p>
+                    <p style="color:#fff; font-size:26px; word-wrap:break-word; word-break:normal; word-break:break-all; ">区域：<span style="color:#fff; font-weight:bold; font-size:28px;margin-left:2%;"  id="regionName"></span></p>
+                    <p style="color:#fff; font-size:26px; word-wrap:break-word; word-break:normal; word-break:break-all; ">学校：<span style="color:#fff; font-weight:bold; font-size:28px;margin-left:2%;" id="schoolName"></span></p>
+                    <p style="color:#fff; font-size:26px; word-wrap:break-word; word-break:normal; word-break:break-all; ">球队人数：<span style="color:#fff; font-weight:bold; font-size:28px;margin-left:2%;" id="teamCount"></span></p>
+                    <p style="width:100%;  word-wrap:break-word; word-break:normal; word-break:break-all;  color:#d2fc31; margin-top:10px;" id="teamDesc">
+                     
+                    </p>
+                     -->
+                </div>
+                <div class="user_header_r">
+                    <!--<div style="width:50%; margin:0 auto;">
+                        <img src="images/z.png" style="height: auto;width: auto\9;width: 100%; cursor:pointer;" />
+                    </div>
+
+                    <p style="font-size:30px; color:#d2fc31; text-align:center;">
+                        312
+                    </p>-->
+                    <a style="cursor:pointer; display:block; text-align:center; width:100%; margin:0 auto; margin-top:20px; padding:15px 0; background-color:#d2fc31;  " id="btnA">
+                        马上申请，和小伙伴一起战斗！
+                    </a>
+                   
+            </div>
+            
+            <div class="user_header_r" style="margin-top:10px;">
+                   <!--   <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqf" data-cmd="tqf" title="分享到腾讯朋友"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> -->
+                    
+                <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_kaixin001"></a>
+<a class="jiathis_button_cqq"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+            </div>
+            
+
+                </div>
+            <div class="user_list">
+                <p style="font-size:26px; font-weight:bold; text-indent:10%;margin:20px 0; color:#373a3a;">成员列表</p>
+                <div style="width:95%; margin:0 auto;  height:100%; overflow:hidden;" id="personDiv">
+               
+                   
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+$(document).ready(function(){
+
+	//var reg = new RegExp("(^|&)" + id + "=([^&]*)(&|$)");
+	///alert(window.location.search);
+            
+            //window.location.search;获得地址栏比如http://localhost:1214/web/BoKeHomePage.aspx?name=1
+            //返回"?name=1";
+            //substr(index,index);截取字符串从第几个开始截取,截取多少个，不写代表一直到最后
+            //match();返回指定数值在指定数组区域中的位置
+	var url=location.search; 
+	var ename; 
+	var Request = new Object(); 
+	if(url.indexOf("?")!=-1) 
+	{ 
+	var str = url.substr(4); 
+	$("#hiddenId").val(str);
+	
+	}
+	findAll();
+
+});
+
+function img_seover(){ 
+		$("#imgs").attr("src","/xinmin/images/index_hui.png");
+	}
+function img_out(){
+		$("#imgs").attr("src","/xinmin/images/index_black.png");
+	}
+
+
+</script>
+<script>
+function findAll(){
+	var hiddenId =$("#hiddenId").val();
+	if(hiddenId==null||hiddenId==''){
+		layer.msg("未能获取ID，请重新刷新页面");
+		return false;
+	}
+	jQuery.ajax({
+		url:'/xinmin/umanages/findAll.do',
+		type:'POST',
+		dataType :'json',
+		data :{id:hiddenId},
+		success : function(data){
+			if(data.status==200){
+			//	console.log(data);
+				$("#teamName").text(data.data.teamName);
+				$("#regionName").text(data.data.addressName);
+				$("#schoolName").text(data.data.schoolName);
+				$("#teamCount").text(data.data.teamCount);
+				$("#teamDesc").text(data.data.teamDesc);
+				$("#teamPic").attr("src",data.data.teamLogo);
+				var obj = data.data.UserDtoList;
+				var a='';
+				if(obj!=null){
+					for(var i=0;i<obj.length;i++){
+						//a+=" <div class=\"block\"><div style=\"width:60%; margin:0 auto; background-color:#fff; border-radius:100%; padding:5px; \">";
+						//a+="<img src=\""+obj[i].userImage+"\" style=\"height: auto;width: auto\9;width: 100%;\" /></div>";
+						a+=" <div class=\"block\"><div style=\"width:185px; height:186px; margin:0 auto; background-color:#fff; border-radius:100%; padding:5px; \">";
+						a+="<img src=\""+obj[i].userImage+"\" style=\"width:185px; height:186px; border-radius:100%;\" /></div>";	
+						a+=" <p style=\"width:100%; text-align:center; font-family:Arial; font-weight:bold; margin-top:10px;\">"+obj[i].realName+"</p>";
+						a+="    <p style=\"width:100%; text-align:center; font-weight:bold; \">";
+						var pos = obj[i].pos
+						if(pos!=''&&pos!=null){
+							if(pos==1){
+								a+="中场";
+							}else if(pos==2){
+								a+="前卫";
+							}else if(pos==3){
+								a+="前锋";
+							}else if(pos==4){
+								a+="后卫";
+							}else if(pos==5){
+								a+="门将";
+							}else{
+								a+="未知";
+							}
+						}else{
+							a+="未知";
+						}
+						a+="</p>";
+						a+="</div>"
+						
+					}
+					
+				}
+	
+             
+		
+             $("#personDiv").html(a);
+			}else{
+				layer.msg("查询队伍资料出错");
+			}
+		}
+	});
+	
+	
+	
+}
+$("#btnA").click(function(){
+	var hiddenId =$("#hiddenId").val();
+	if(hiddenId==null||hiddenId==''){
+		layer.msg("未能获取ID，请重新刷新页面");
+		return false;
+	}
+	jQuery.ajax({
+		url:'/xinmin/umanages/jump.do',
+		type:'POST',
+		dataType :'json',
+		data :{id:hiddenId},
+		success : function(data){
+			if(data.status==200){
+				location.href="/xinmin/join.html";
+			}else{
+				layer.msg("申请加入队伍失败，原因:检查不到队伍ID");
+			}
+		}
+	});	
+});
+</script>
+</body>
+</html>

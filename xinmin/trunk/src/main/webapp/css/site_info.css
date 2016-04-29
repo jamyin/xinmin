@@ -1,0 +1,264 @@
+﻿*{
+    padding:0;
+    margin:0;
+    font-family:微软雅黑;
+}
+
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width:1200px;
+    margin:0 auto;
+}
+
+.header {
+    width:100%;
+    height:80px;
+    background:#000;
+    font-size:20px;
+}
+
+    .header ul {
+        padding-top:25px;
+    } 
+
+     .header ul li{
+         float:left;
+         margin-left:60px;
+    } 
+
+       .header ul li a{
+         color:#b8e01e;
+    }
+
+
+.crate_btn {
+    width:134px;
+    height:54px;
+    background-image: url('../images/crate_btn.png');  
+    color:#fff;
+    text-align:center;
+    line-height:54px;
+    padding-top:5px; 
+    font-size:18px;
+    cursor:pointer;
+    position:absolute;
+    bottom:50px;
+    right:250px;
+     -moz-background-size:contain;
+    -webkit-background-size:contain;
+    -o-background-size:contain;
+    background-size:contain;
+}
+
+.join_btn {
+   width:134px;
+    height:54px;
+    background-image: url('../images/join_btn.png');  
+    color:#fff;
+    text-align:center;
+    line-height:54px;
+    padding-top:5px; 
+    font-size:18px;
+    cursor:pointer;
+    position:absolute;
+    bottom:50px;
+    right:100px;
+     -moz-background-size:contain;
+    -webkit-background-size:contain;
+    -o-background-size:contain;
+    background-size:contain;
+}
+
+
+.site_info {
+    width:100%;  
+    background-color:#d2fc31;
+    padding-bottom:10px;
+}
+
+.site {
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#373a3a;
+}
+
+.site1 {
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#d2fc31;
+}
+
+.site2 {
+     width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#fff;
+}
+
+.site_l {
+    float:left;
+    margin-top:15px;
+}
+
+.site_c {
+    float:left;
+    font-size:30px;
+    color:#fff;
+    padding:0 20px;
+}
+
+.site_r {
+    float:left;
+    margin-top:15px;
+}
+
+.site2_l {
+    width:600px;
+    float:left;
+}
+.site2_r {
+    float:left;
+    height:572px;
+}
+
+
+
+
+
+
+
+
+
+/*图片轮播*/
+
+.gallery {
+	position: relative;
+	width: 100%;
+	height: 450px; 
+}
+.gallery_img img {
+	width: 100%;
+	height: 450px;
+}
+.gallery_img {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 450px;
+	overflow: hidden;
+}
+.gallery_img ul {
+	position: relative;
+	-webkit-transition: all 1s ease 0s;
+	-moz-transition: all 1s ease 0s;
+	-ms-transition: all 1s ease 0s;
+	-o-transition: all 1s ease 0s;
+	transition: all 1s ease 0s;
+}
+.gallery_img ul li {
+	float: left;
+}
+.gallery_img ul li img {
+	/*border-radius: 10px;*/
+}
+.gallery ol {
+	position: absolute;
+	top:275px;
+}
+.gallery ol li {
+	float: left;
+	background:#ccc;
+	width: 12px;
+	height: 12px;
+	margin-left: 5px;
+	text-align: center;
+	display: inherit;
+	text-indent: -9999px;
+	cursor: pointer;
+	border-radius: 16px;
+}
+#imgplayer {
+	height:305px;
+	width:560px;
+	padding-top:10px;
+	position:relative;
+	right:0;
+	top:0;
+	border:0;
+	overflow:hidden
+}
+#imgplayer-prev, #imgplayer-next {
+	position:absolute;
+	width:45px;
+	height:45px;
+	z-index:89;
+	filter:alpha(opacity=30);
+	opacity:.3;
+	top:130px;
+	overflow:hidden;
+	line-height:10
+}
+#imgplayer-prev {
+	left:10px;
+	background:url('../images/png24.png') no-repeat left top;
+	_background:url(/uploads/rs/119/4yubfdw0/top_bg.png) no-repeat 2px -557px
+}
+#imgplayer-next {
+    right: 10px; 
+   // background: url('../images/png24.png') no-repeat left -45px;
+   // _background: url(/uploads/rs/119/4yubfdw0/top_bg.png) no-repeat 2px -495px;
+}
+#imgplayer-control a:hover {
+	filter:alpha(opacity=80);
+	opacity:.8
+}
+.imgnav-mask {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	min-height: 40px;
+	background: #000;
+	width: 100%;
+	z-index: 86;
+	filter: alpha(opacity=40);
+	opacity: .4;
+	/*border-radius: 10px;*/
+}
+.imgtit {
+	position: absolute;
+	height: 40px;
+	width: 100%;
+	bottom: 0;
+	z-index: 87;
+	background: 0;
+}
+.imgtit-left{
+	left: 0;
+	padding-left: 10px;
+	text-align: left;
+}
+.imgtit-right{
+	right:0;
+	padding-right:10px;
+	text-align: right;
+}
+.imgtit a:link, .imgtit a:visited, .imgtit a:hover, .imgtit a:active {
+	display:block;
+	height:40px;
+	font:normal 16px/40px "微软雅黑";
+	text-decoration:none;
+	color:#fff;
+	letter-spacing:1px
+}
+/*图片轮播*/
